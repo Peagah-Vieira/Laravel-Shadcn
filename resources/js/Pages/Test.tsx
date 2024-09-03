@@ -13,48 +13,31 @@ import {
     CardTitle,
 } from "@/Components/ui/card";
 
-export default function Register() {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        name: '',
+export default function ForgotPassword({ status }: { status?: string }) {
+    const { data, setData, post, processing, errors } = useForm({
         email: '',
-        password: '',
-        password_confirmation: '',
     });
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('register'), {
-            onFinish: () => reset('password', 'password_confirmation'),
-        });
+        post(route('password.email'));
     };
 
     return (
         <GuestLayout>
-            <Head title="Register" />
+            <Head title="Forgot Passwordr" />
             <form onSubmit={submit}>
                 <Card className="mx-auto max-w-sm">
                     <CardHeader>
-                        <CardTitle className="text-xl">Sign Up</CardTitle>
+                        <CardTitle className="text-xl">Forgot Password</CardTitle>
                         <CardDescription>
-                            Enter your information to create an account
+                            Forgot your password? No problem. Just let us know your email address and we will email you a password
+                            reset link that will allow you to choose a new one.
                         </CardDescription>
                     </CardHeader>
                     <CardContent>
                         <div className="grid gap-4">
-                            <div className="grid gap-2">
-                                <Label htmlFor="name">Name</Label>
-                                <Input
-                                    id="name"
-                                    type="name"
-                                    name="name"
-                                    value={data.name}
-                                    autoComplete="name"
-                                    onChange={(e) => setData('name', e.target.value)}
-                                    required
-                                />
-                                <InputError message={errors.email} className="mt-2" />
-                            </div>
                             <div className="grid gap-2">
                                 <Label htmlFor="email">Email</Label>
                                 <Input
@@ -69,41 +52,9 @@ export default function Register() {
                                 />
                                 <InputError message={errors.email} className="mt-2" />
                             </div>
-                            <div className="grid gap-2">
-                                <Label htmlFor="password">Password</Label>
-                                <Input
-                                    id="password"
-                                    type="password"
-                                    name="password"
-                                    value={data.password}
-                                    className="mt-1 block w-full"
-                                    autoComplete="new-password"
-                                    onChange={(e) => setData('password', e.target.value)}
-                                    required
-                                />
-                            </div>
-                            <div className="grid gap-2">
-                                <Label htmlFor="password_confirmation">Confirm Password</Label>
-                                <Input
-                                    id="password_confirmation"
-                                    type="password"
-                                    name="password_confirmation"
-                                    value={data.password_confirmation}
-                                    className="mt-1 block w-full"
-                                    autoComplete="new-password"
-                                    onChange={(e) => setData('password_confirmation', e.target.value)}
-                                    required
-                                />
-                            </div>
                             <Button type="submit" className="w-full" disabled={processing}>
-                                Create an account
+                                Email Password Reset Link
                             </Button>
-                        </div>
-                        <div className="mt-4 text-center text-sm">
-                            Already have an account?{" "}
-                            <Link href={route('login')} className="underline">
-                                Sign in
-                            </Link>
                         </div>
                     </CardContent>
                 </Card>
