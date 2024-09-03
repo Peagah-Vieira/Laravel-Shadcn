@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Laravel-Sail-Shadcn",
+    "type": "postgres",
+    "host": "localhost",
+    "port": "5432",
+    "username": "sail",
+    "password": "password",
+    "database": "laravel"
+  }
+]
