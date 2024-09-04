@@ -2,14 +2,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/Components/ui/sheet";
 import { Link } from "@inertiajs/react";
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
-import {
-    Bell,
-    CircleUser,
-    Home,
-    Menu,
-    Package2,
-    Search,
-} from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -18,6 +12,18 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
+import {
+    faHouse,
+    faCube,
+    faUsers,
+    faTags,
+    faCopy,
+    faComments,
+    faRocket,
+    faBars,
+    faMagnifyingGlass
+} from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
 
 export default function Navbar() {
     const appName = import.meta.env.VITE_APP_NAME;
@@ -31,7 +37,7 @@ export default function Navbar() {
                         size="icon"
                         className="shrink-0 md:hidden"
                     >
-                        <Menu className="h-5 w-5" />
+                        <FontAwesomeIcon icon={faBars as IconProp} />
                         <span className="sr-only">Toggle navigation menu</span>
                     </Button>
                 </SheetTrigger>
@@ -41,31 +47,31 @@ export default function Navbar() {
                             href={route('dashboard')}
                             className="flex items-center gap-2 text-lg font-semibold"
                         >
-                            <Package2 className="h-6 w-6" />
+                            <FontAwesomeIcon icon={faRocket as IconProp} size="xl" />
                             <span>{appName}</span>
                         </Link>
                         <Link href={route('dashboard')} className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                            <Home className="h-5 w-5" />
+                            <FontAwesomeIcon icon={faHouse as IconProp} />
                             Home
                         </Link>
                         <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                            <Home className="h-5 w-5" />
+                            <FontAwesomeIcon icon={faUsers as IconProp} />
                             Users
                         </Link>
                         <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                            <Home className="h-5 w-5" />
+                            <FontAwesomeIcon icon={faCube as IconProp} />
                             Categories
                         </Link>
                         <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                            <Home className="h-5 w-5" />
+                            <FontAwesomeIcon icon={faCopy as IconProp} />
                             Contents
                         </Link>
                         <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                            <Home className="h-5 w-5" />
+                            <FontAwesomeIcon icon={faTags as IconProp} />
                             Tags
                         </Link>
                         <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
-                            <Home className="h-5 w-5" />
+                            <FontAwesomeIcon icon={faComments as IconProp} />
                             Comments
                         </Link>
                     </nav>
@@ -74,7 +80,7 @@ export default function Navbar() {
             <div className="w-full flex-1">
                 <form>
                     <div className="relative">
-                        <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
+                        <FontAwesomeIcon icon={faMagnifyingGlass as IconProp} className="absolute left-2.5 top-2.5 text-muted-foreground" />
                         <Input
                             type="search"
                             placeholder="Search products..."
@@ -86,7 +92,7 @@ export default function Navbar() {
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="secondary" size="icon" className="rounded-full">
-                        <CircleUser className="h-5 w-5" />
+                        <FontAwesomeIcon icon={faCircleUser as IconProp} size="xl" />
                         <span className="sr-only">Toggle user menu</span>
                     </Button>
                 </DropdownMenuTrigger>
