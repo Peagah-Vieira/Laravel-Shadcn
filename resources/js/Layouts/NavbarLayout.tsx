@@ -48,6 +48,26 @@ export default function Navbar() {
                             <Home className="h-5 w-5" />
                             Home
                         </Link>
+                        <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
+                            <Home className="h-5 w-5" />
+                            Users
+                        </Link>
+                        <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
+                            <Home className="h-5 w-5" />
+                            Categories
+                        </Link>
+                        <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
+                            <Home className="h-5 w-5" />
+                            Contents
+                        </Link>
+                        <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
+                            <Home className="h-5 w-5" />
+                            Tags
+                        </Link>
+                        <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
+                            <Home className="h-5 w-5" />
+                            Comments
+                        </Link>
                     </nav>
                 </SheetContent>
             </Sheet>
