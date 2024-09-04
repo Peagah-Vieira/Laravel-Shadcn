@@ -1,10 +1,12 @@
 import { Button } from "@/Components/ui/button";
 import Sidebar from "@/Layouts/SideBarLayout";
 import Navbar from "@/Layouts/NavbarLayout";
+import { Head } from '@inertiajs/react';
 
-export default function Home() {
+export default function Dashboard() {
     return (
         <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+            <Head title="Home" />
             <Sidebar />
             <div className="flex flex-col">
                 <Navbar />

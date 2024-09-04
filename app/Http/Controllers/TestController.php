@@ -10,6 +10,6 @@ class TestController extends Controller
 {
     public function test(): Response
     {
-        return Inertia::render('Test');
+        return Inertia::render('Dashboard/Home');
     }
 }
