@@ -8,8 +8,13 @@ use Inertia\Response;
 
 class TestController extends Controller
 {
-    public function test(): Response
+    public function home(): Response
     {
         return Inertia::render('Dashboard/Home');
+    }
+
+    public function users(): Response
+    {
+        return Inertia::render('Dashboard/Users');
     }
 }
