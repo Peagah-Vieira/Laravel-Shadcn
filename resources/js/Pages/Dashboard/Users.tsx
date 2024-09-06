@@ -8,19 +8,11 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/Components/ui/breadcrumb";
-import {
-    Table,
-    TableBody,
-    TableCaption,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/Components/ui/table";
-import { PageProps, User } from "@/types";
+import { columns } from "@/Layouts/Users/Columns";
+import { DataTable } from "@/Layouts/DataTable";
+import { PageProps } from "@/types";
 
-
-export default function Dashboard({ users }: PageProps<{ users: [] }>) {
+export default function Payments({ users }: PageProps<{ users: [] }>) {
     return (
         <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
             <Head title="Home" />
@@ -41,31 +33,7 @@ export default function Dashboard({ users }: PageProps<{ users: [] }>) {
                             </BreadcrumbList>
                         </Breadcrumb>
                     </div>
-                    <div className="flex flex-1 rounded-lg border border-gray-500 shadow-lg">
-                        <Table>
-                            <TableCaption>A list of Users.</TableCaption>
-                            <TableHeader>
-                                <TableRow>
-                                    <TableHead>Id</TableHead>
-                                    <TableHead>Name</TableHead>
-                                    <TableHead>Email</TableHead>
-                                    <TableHead>Created At</TableHead>
-                                    <TableHead>Updated At</TableHead>
-                                </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                                {users.map((user: User) =>
-                                    <TableRow>
-                                        <TableCell className="font-medium">{user.id}</TableCell>
-                                        <TableCell>{user.name}</TableCell>
-                                        <TableCell>{user.email}</TableCell>
-                                        <TableCell>{user.created_at.toString()}</TableCell>
-                                        <TableCell>{user.updated_at.toString()}</TableCell>
-                                    </TableRow>
-                                )}
-                            </TableBody>
-                        </Table>
-                    </div>
+                    <DataTable columns={columns} data={users} />
                 </main>
             </div>
         </div>
