@@ -1,5 +1,4 @@
-import Sidebar from "@/Layouts/SideBarLayout";
-import Navbar from "@/Layouts/NavbarLayout";
+import RootLayout from "@/Layouts/RootLayout";
 import { Head } from '@inertiajs/react';
 import {
     Breadcrumb,
@@ -12,30 +11,24 @@ import { columns } from "@/Layouts/Users/Columns";
 import { DataTable } from "@/Layouts/Table/DataTableLayout";
 import { PageProps } from "@/types";
 
-export default function Payments({ users }: PageProps<{ users: [] }>) {
+export default function Users({ users }: PageProps<{ users: [] }>) {
     return (
-        <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-            <Head title="Home" />
-            <Sidebar />
-            <div className="flex flex-col">
-                <Navbar />
-                <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
-                    <div className="flex items-center">
-                        <Breadcrumb>
-                            <BreadcrumbList>
-                                <BreadcrumbItem>
-                                    <BreadcrumbLink href={route('dashboard')}>Home</BreadcrumbLink>
-                                </BreadcrumbItem>
-                                <BreadcrumbSeparator />
-                                <BreadcrumbItem>
-                                    <BreadcrumbLink>Users</BreadcrumbLink>
-                                </BreadcrumbItem>
-                            </BreadcrumbList>
-                        </Breadcrumb>
-                    </div>
-                    <DataTable columns={columns} data={users} />
-                </main>
+        <RootLayout>
+            <Head title="Users" />
+            <div className="flex items-center">
+                <Breadcrumb>
+                    <BreadcrumbList>
+                        <BreadcrumbItem>
+                            <BreadcrumbLink href={route('dashboard')}>Home</BreadcrumbLink>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator />
+                        <BreadcrumbItem>
+                            <BreadcrumbLink>Users</BreadcrumbLink>
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                </Breadcrumb>
             </div>
-        </div>
+            <DataTable columns={columns} data={users} />
+        </RootLayout>
     )
 }
