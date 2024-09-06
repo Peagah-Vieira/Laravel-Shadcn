@@ -33,6 +33,7 @@ export const columns: ColumnDef<User>[] = [
                 aria-label="Select row"
             />
         ),
+        enableGlobalFilter: false,
         enableSorting: false,
         enableHiding: false,
     },
@@ -43,6 +44,8 @@ export const columns: ColumnDef<User>[] = [
                 <DataTableColumnHeader column={column} title="Id" />
             )
         },
+        enableGlobalFilter: true,
+        filterFn: "equals"
     },
     {
         accessorKey: "name",
@@ -51,6 +54,8 @@ export const columns: ColumnDef<User>[] = [
                 <DataTableColumnHeader column={column} title="Name" />
             )
         },
+        enableGlobalFilter: true,
+        filterFn: "includesString"
     },
     {
         accessorKey: "email",
@@ -59,6 +64,8 @@ export const columns: ColumnDef<User>[] = [
                 <DataTableColumnHeader column={column} title="Email" />
             )
         },
+        enableGlobalFilter: true,
+        filterFn: "includesString"
     },
     {
         accessorKey: "created_at",
@@ -67,6 +74,8 @@ export const columns: ColumnDef<User>[] = [
                 <DataTableColumnHeader column={column} title="Created_At" />
             )
         },
+        enableGlobalFilter: true,
+        filterFn: "inNumberRange"
     },
     {
         accessorKey: "updated_at",
@@ -75,6 +84,8 @@ export const columns: ColumnDef<User>[] = [
                 <DataTableColumnHeader column={column} title="Updated_At" />
             )
         },
+        enableGlobalFilter: true,
+        filterFn: "inNumberRange"
     },
     {
         id: "actions",
@@ -108,5 +119,6 @@ export const columns: ColumnDef<User>[] = [
                 </DropdownMenu>
             )
         },
+        enableGlobalFilter: false
     },
 ]
