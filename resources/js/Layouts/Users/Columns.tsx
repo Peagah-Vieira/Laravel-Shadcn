@@ -12,6 +12,7 @@ import {
 } from "@/Components/ui/dropdown-menu"
 import { Checkbox } from "@/Components/ui/checkbox"
 import { DataTableColumnHeader } from "../Table/DataTableColumnHeaderLayout"
+import CopyUserId from "./Actions/CopyUserId"
 
 export const columns: ColumnDef<User>[] = [
     {
@@ -102,10 +103,8 @@ export const columns: ColumnDef<User>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem onClick={() => navigator.clipboard.writeText(user.id.toString())} className="cursor-pointer">
-                            Copy User ID
-                        </DropdownMenuItem>
                         <DropdownMenuSeparator />
+                        <CopyUserId user={user} />
                         <DropdownMenuItem className="cursor-pointer">
                             View
                         </DropdownMenuItem>
