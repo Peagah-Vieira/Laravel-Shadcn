@@ -10,8 +10,8 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu"
-import { ArrowUpDown } from "lucide-react"
 import { Checkbox } from "@/Components/ui/checkbox"
+import { DataTableColumnHeader } from "../DataTableColumnHeaderLayout"
 
 export const columns: ColumnDef<User>[] = [
     {
@@ -40,13 +40,7 @@ export const columns: ColumnDef<User>[] = [
         accessorKey: "id",
         header: ({ column }) => {
             return (
-                <Button className="p-2"
-                    variant="ghost"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Id
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
+                <DataTableColumnHeader column={column} title="Id" />
             )
         },
     },
@@ -54,13 +48,7 @@ export const columns: ColumnDef<User>[] = [
         accessorKey: "name",
         header: ({ column }) => {
             return (
-                <Button className="p-2"
-                    variant="ghost"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Name
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
+                <DataTableColumnHeader column={column} title="Name" />
             )
         },
     },
@@ -68,13 +56,7 @@ export const columns: ColumnDef<User>[] = [
         accessorKey: "email",
         header: ({ column }) => {
             return (
-                <Button className="p-2"
-                    variant="ghost"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Email
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
+                <DataTableColumnHeader column={column} title="Email" />
             )
         },
     },
@@ -82,13 +64,7 @@ export const columns: ColumnDef<User>[] = [
         accessorKey: "created_at",
         header: ({ column }) => {
             return (
-                <Button className="p-2"
-                    variant="ghost"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Created_At
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
+                <DataTableColumnHeader column={column} title="Created_At" />
             )
         },
     },
@@ -96,13 +72,7 @@ export const columns: ColumnDef<User>[] = [
         accessorKey: "updated_at",
         header: ({ column }) => {
             return (
-                <Button className="p-2"
-                    variant="ghost"
-                    onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-                >
-                    Updated_At
-                    <ArrowUpDown className="ml-2 h-4 w-4" />
-                </Button>
+                <DataTableColumnHeader column={column} title="Updated_At" />
             )
         },
     },
