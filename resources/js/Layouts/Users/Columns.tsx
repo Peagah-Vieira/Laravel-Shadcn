@@ -91,13 +91,19 @@ export const columns: ColumnDef<User>[] = [
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                         <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuItem onClick={() => navigator.clipboard.writeText(user.id.toString())}>
+                        <DropdownMenuItem onClick={() => navigator.clipboard.writeText(user.id.toString())} className="cursor-pointer">
                             Copy User ID
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>View</DropdownMenuItem>
-                        <DropdownMenuItem>Edit</DropdownMenuItem>
-                        <DropdownMenuItem>Delete</DropdownMenuItem>
+                        <DropdownMenuItem className="cursor-pointer">
+                            View
+                        </DropdownMenuItem>
+                        <DropdownMenuItem className="cursor-pointer">
+                            Edit
+                        </DropdownMenuItem>
+                        <DropdownMenuItem className="cursor-pointer">
+                            Delete
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             )
