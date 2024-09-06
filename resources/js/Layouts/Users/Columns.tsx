@@ -11,7 +11,7 @@ import {
     DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu"
 import { Checkbox } from "@/Components/ui/checkbox"
-import { DataTableColumnHeader } from "../DataTableColumnHeaderLayout"
+import { DataTableColumnHeader } from "../Table/DataTableColumnHeaderLayout"
 
 export const columns: ColumnDef<User>[] = [
     {

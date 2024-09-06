@@ -62,7 +62,7 @@ export function DataTable<TData, TValue>({
         <div>
             <div className="flex items-center py-4">
                 <Input
-                    placeholder="Filter Users..."
+                    placeholder="Filter..."
                     value={globalFilter ?? ''}
                     onChange={e =>
                         setGlobalFilter(e.target.value)

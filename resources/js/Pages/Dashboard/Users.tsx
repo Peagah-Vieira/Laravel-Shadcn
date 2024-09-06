@@ -9,7 +9,7 @@ import {
     BreadcrumbSeparator,
 } from "@/Components/ui/breadcrumb";
 import { columns } from "@/Layouts/Users/Columns";
-import { DataTable } from "@/Layouts/DataTableLayout";
+import { DataTable } from "@/Layouts/Table/DataTableLayout";
 import { PageProps } from "@/types";
 
 export default function Payments({ users }: PageProps<{ users: [] }>) {
