@@ -12,7 +12,7 @@ import { Label } from "@/Components/ui/label"
 import { Button } from "@/Components/ui/button"
 import { PlusCircle } from "lucide-react"
 
-export function UserDialog() {
+export function UserCreateDialog() {
     return (
         <Dialog>
             <DialogTrigger asChild>

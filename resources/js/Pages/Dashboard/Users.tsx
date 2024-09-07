@@ -10,7 +10,7 @@ import {
 import { UsersColumns } from "@/Layouts/Users/UsersColumns";
 import { DataTable } from "@/Layouts/Table/DataTableLayout";
 import { PageProps } from "@/types";
-import { UserDialog } from "@/Layouts/Users/UserDialog";
+import { UserCreateDialog } from "@/Layouts/Users/UserCreateDialog";
 
 export default function Users({ users }: PageProps<{ users: [] }>) {
     return (
@@ -29,7 +29,7 @@ export default function Users({ users }: PageProps<{ users: [] }>) {
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
-            <DataTable columns={UsersColumns} data={users} DialogComponent={UserDialog} />
+            <DataTable columns={UsersColumns} data={users} DialogComponent={UserCreateDialog} />
         </RootLayout>
     )
 }
