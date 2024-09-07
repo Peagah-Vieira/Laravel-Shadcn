@@ -7,8 +7,12 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/Components/ui/breadcrumb";
+import { DataTable } from "@/Layouts/Table/DataTableLayout";
+import { CategoriesColumns } from "@/Layouts/Categories/CategoriesColumns";
+import { CategoryDialog } from "@/Layouts/Categories/CategoryDialog";
+import { PageProps } from "@/types";
 
-export default function Categories() {
+export default function Categories({ categories }: PageProps<{ categories: [] }>) {
     return (
         <RootLayout>
             <Head title="Categories" />
@@ -25,6 +29,7 @@ export default function Categories() {
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
+            <DataTable columns={CategoriesColumns} data={categories} DialogComponent={CategoryDialog} />
         </RootLayout>
     )
 }

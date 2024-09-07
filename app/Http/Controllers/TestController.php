@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -23,6 +24,8 @@ class TestController extends Controller
 
     public function categories(): Response
     {
-        return Inertia::render('Dashboard/Categories');
+        return Inertia::render('Dashboard/Categories', [
+            'categories' => Category::all(),
+        ]);
     }
 }
