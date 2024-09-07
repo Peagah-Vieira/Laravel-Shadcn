@@ -14,7 +14,7 @@ import { Checkbox } from "@/Components/ui/checkbox"
 import { DataTableColumnHeader } from "../Table/DataTableColumnHeaderLayout"
 import CopyUserId from "./Actions/CopyUserId"
 
-export const columns: ColumnDef<User>[] = [
+export const UsersColumns: ColumnDef<User>[] = [
     {
         id: "select",
         header: ({ table }) => (

@@ -7,10 +7,10 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/Components/ui/breadcrumb";
-import { columns } from "@/Layouts/Users/Columns";
+import { UsersColumns } from "@/Layouts/Users/UsersColumns";
 import { DataTable } from "@/Layouts/Table/DataTableLayout";
 import { PageProps } from "@/types";
-import { UserDialog } from "@/Layouts/Users/DataTableDialog";
+import { UserDialog } from "@/Layouts/Users/UserDialog";
 
 export default function Users({ users }: PageProps<{ users: [] }>) {
     return (
@@ -29,7 +29,7 @@ export default function Users({ users }: PageProps<{ users: [] }>) {
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
-            <DataTable columns={columns} data={users} DialogComponent={UserDialog} />
+            <DataTable columns={UsersColumns} data={users} DialogComponent={UserDialog} />
         </RootLayout>
     )
 }
