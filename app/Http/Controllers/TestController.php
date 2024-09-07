@@ -20,4 +20,9 @@ class TestController extends Controller
             'users' => User::all(),
         ]);
     }
+
+    public function categories(): Response
+    {
+        return Inertia::render('Dashboard/Categories');
+    }
 }
