@@ -28,5 +28,6 @@ Route::middleware('auth')->group(function () {
 Route::get('test', [TestController::class, 'home']);
 Route::get('test/users', [TestController::class, 'users']);
 Route::get('test/categories', [TestController::class, 'categories']);
+Route::post('test/categories', [TestController::class, 'category_store'])->name('category.store');
 
 require __DIR__ . '/auth.php';
