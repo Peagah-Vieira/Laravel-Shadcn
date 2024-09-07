@@ -12,7 +12,7 @@ import {
 } from "@/Components/ui/dropdown-menu"
 import { Checkbox } from "@/Components/ui/checkbox"
 import { DataTableColumnHeader } from "../Table/DataTableColumnHeaderLayout"
-import CopyUserId from "./Actions/CopyUserId"
+import UsersColumnsActions from "./UsersColumnsActions"
 
 export const UsersColumns: ColumnDef<User>[] = [
     {
@@ -101,20 +101,7 @@ export const UsersColumns: ColumnDef<User>[] = [
                             <MoreHorizontal className="h-4 w-4" />
                         </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
-                        <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <CopyUserId user={user} />
-                        <DropdownMenuItem className="cursor-pointer">
-                            View
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="cursor-pointer">
-                            Edit
-                        </DropdownMenuItem>
-                        <DropdownMenuItem className="cursor-pointer">
-                            Delete
-                        </DropdownMenuItem>
-                    </DropdownMenuContent>
+                    <UsersColumnsActions user={user} />
                 </DropdownMenu>
             )
         },
