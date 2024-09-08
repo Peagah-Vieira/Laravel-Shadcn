@@ -65,6 +65,10 @@ export const UsersColumns: ColumnDef<User>[] = [
                 <DataTableColumnHeader column={column} title="Created_At" />
             )
         },
+        cell: ({ row }) => {
+            const formatted = new Date(row.getValue("created_at")).toLocaleString()
+            return formatted
+        },
         enableGlobalFilter: true,
         filterFn: "inNumberRange"
     },
@@ -74,6 +78,10 @@ export const UsersColumns: ColumnDef<User>[] = [
             return (
                 <DataTableColumnHeader column={column} title="Updated_At" />
             )
+        },
+        cell: ({ row }) => {
+            const formatted = new Date(row.getValue("created_at")).toLocaleString()
+            return formatted
         },
         enableGlobalFilter: true,
         filterFn: "inNumberRange"

@@ -64,6 +64,10 @@ export const CategoriesColumns: ColumnDef<Category>[] = [
                 <DataTableColumnHeader column={column} title="Created_At" />
             )
         },
+        cell: ({ row }) => {
+            const formatted = new Date(row.getValue("created_at")).toLocaleString()
+            return formatted
+        },
         enableGlobalFilter: true,
         filterFn: "inNumberRange"
     },
@@ -73,6 +77,10 @@ export const CategoriesColumns: ColumnDef<Category>[] = [
             return (
                 <DataTableColumnHeader column={column} title="Updated_At" />
             )
+        },
+        cell: ({ row }) => {
+            const formatted = new Date(row.getValue("created_at")).toLocaleString()
+            return formatted
         },
         enableGlobalFilter: true,
         filterFn: "inNumberRange"
