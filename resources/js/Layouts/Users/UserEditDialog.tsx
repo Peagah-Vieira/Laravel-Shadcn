@@ -9,10 +9,11 @@ import {
 import { Input } from "@/Components/ui/input"
 import { Label } from "@/Components/ui/label"
 import { Button } from "@/Components/ui/button"
+import { DialogProps } from "@radix-ui/react-dialog"
 
-export function UserEditDialog() {
+export function UserEditDialog({ open, onOpenChange }: DialogProps) {
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
                     <DialogTitle>Edit User</DialogTitle>
