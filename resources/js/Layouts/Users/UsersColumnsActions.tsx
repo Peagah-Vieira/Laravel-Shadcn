@@ -13,6 +13,7 @@ import { User } from "@/types"
 import { useState } from "react"
 import { UserEditDialog } from "./UserEditDialog"
 import { UserViewDialog } from "./UserViewDialog"
+import { UserDeleteDialog } from "./UserDeleteDialog"
 
 type props = {
     user: User
@@ -22,11 +23,13 @@ export default function UsersColumnsActions({ user }: props) {
     const { toast } = useToast()
     const [isViewDialogOpen, setIsViewDialogOpen] = useState(false)
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
 
     return (
         <DropdownMenu>
             <UserViewDialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen} />
             <UserEditDialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen} />
+            <UserDeleteDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen} />
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="h-8 w-8 p-0">
                     <span className="sr-only">Open menu</span>
@@ -53,7 +56,8 @@ export default function UsersColumnsActions({ user }: props) {
                     className="cursor-pointer">
                     Edit
                 </DropdownMenuItem>
-                <DropdownMenuItem className="cursor-pointer">
+                <DropdownMenuItem onClick={() => setIsDeleteDialogOpen(true)}
+                    className="cursor-pointer">
                     Delete
                 </DropdownMenuItem>
             </DropdownMenuContent>
