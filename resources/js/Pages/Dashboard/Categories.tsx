@@ -9,7 +9,7 @@ import {
 } from "@/Components/ui/breadcrumb";
 import { DataTable } from "@/Layouts/Table/DataTableLayout";
 import { CategoriesColumns } from "@/Layouts/Categories/CategoriesColumns";
-import { CategoryDialog } from "@/Layouts/Categories/CategoryDialog";
+import { CategoryCreateDialog } from "@/Layouts/Categories/CategoryCreateDialog";
 import { PageProps } from "@/types";
 
 export default function Categories({ categories }: PageProps<{ categories: [] }>) {
@@ -29,7 +29,7 @@ export default function Categories({ categories }: PageProps<{ categories: [] }>
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
-            <DataTable columns={CategoriesColumns} data={categories} DialogComponent={CategoryDialog} />
+            <DataTable columns={CategoriesColumns} data={categories} DialogComponent={CategoryCreateDialog} />
         </RootLayout>
     )
 }

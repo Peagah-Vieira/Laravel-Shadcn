@@ -16,7 +16,7 @@ import { FormEventHandler } from 'react';
 import { useForm } from '@inertiajs/react';
 import { useToast } from "@/hooks/use-toast"
 
-export function CategoryDialog() {
+export function CategoryCreateDialog() {
     const { data, setData, post, processing, errors, reset } = useForm({
         category_name: '',
     });
