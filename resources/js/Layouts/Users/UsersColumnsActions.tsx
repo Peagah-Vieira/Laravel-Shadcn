@@ -12,6 +12,7 @@ import { useToast } from "@/hooks/use-toast"
 import { User } from "@/types"
 import { useState } from "react"
 import { UserEditDialog } from "./UserEditDialog"
+import { UserViewDialog } from "./UserViewDialog"
 
 type props = {
     user: User
@@ -19,10 +20,12 @@ type props = {
 
 export default function UsersColumnsActions({ user }: props) {
     const { toast } = useToast()
+    const [isViewDialogOpen, setIsViewDialogOpen] = useState(false)
     const [isEditDialogOpen, setIsEditDialogOpen] = useState(false)
 
     return (
         <DropdownMenu>
+            <UserViewDialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen} />
             <UserEditDialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen} />
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="h-8 w-8 p-0">
@@ -42,7 +45,8 @@ export default function UsersColumnsActions({ user }: props) {
                 } className="cursor-pointer" >
                     Copy User ID
                 </DropdownMenuItem >
-                <DropdownMenuItem className="cursor-pointer">
+                <DropdownMenuItem onClick={() => setIsViewDialogOpen(true)}
+                    className="cursor-pointer">
                     View
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setIsEditDialogOpen(true)}
