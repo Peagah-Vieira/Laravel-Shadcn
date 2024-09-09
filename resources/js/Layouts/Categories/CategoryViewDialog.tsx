@@ -4,48 +4,44 @@ import {
     DialogDescription,
     DialogHeader,
     DialogTitle,
-    DialogFooter
 } from "@/Components/ui/dialog"
 import { Input } from "@/Components/ui/input"
 import { Label } from "@/Components/ui/label"
-import { Button } from "@/Components/ui/button"
-import { DialogProps } from "@radix-ui/react-dialog"
+import { Category } from "@/types"
 
-export function CategoryViewDialog({ open, onOpenChange }: DialogProps) {
+type props = {
+    open?: boolean,
+    onOpenChange?(open: boolean): void,
+    category: Category
+}
+
+export function CategoryViewDialog({ category, open, onOpenChange }: props) {
     return (
         <Dialog open={open} onOpenChange={onOpenChange}>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>View User</DialogTitle>
+                    <DialogTitle>View Category</DialogTitle>
                     <DialogDescription>
-                        Fill in the details below to edit a new user account. Click Save when you're done.
+                        You can see the category details below.
                     </DialogDescription>
                 </DialogHeader>
                 <div className="grid gap-4 py-4">
                     <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">
+                        <Label htmlFor="category_name" className="text-right">
                             Name
                         </Label>
                         <Input
-                            id="name"
-                            defaultValue="Pedro Duarte"
-                            className="col-span-3"
-                        />
-                    </div>
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="username" className="text-right">
-                            Username
-                        </Label>
-                        <Input
-                            id="username"
-                            defaultValue="@peduarte"
+                            type="name"
+                            id="category_name"
+                            name="category_name"
+                            autoComplete="category_name"
+                            placeholder="@Category"
+                            value={category.category_name}
+                            disabled
                             className="col-span-3"
                         />
                     </div>
                 </div>
-                <DialogFooter>
-                    <Button type="submit">Save</Button>
-                </DialogFooter>
             </DialogContent>
         </Dialog >
     )

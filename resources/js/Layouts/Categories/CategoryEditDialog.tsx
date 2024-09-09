@@ -49,7 +49,7 @@ export function CategoryEditDialog({ category, open, onOpenChange }: props,) {
                     <DialogHeader>
                         <DialogTitle>Edit Category </DialogTitle>
                         <DialogDescription>
-                            Fill in the details below to edit a new user account. Click Save when you're done.
+                            Fill in the details below to edit the category. Click Save when you're done.
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
