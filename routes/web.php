@@ -2,37 +2,37 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return redirect('dashboard');
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::controller(TestController::class)->group(function () {
+        // GET ROUTES
+        Route::get('dashboard', 'home')->name('dashboard');
+        Route::get('dashboard/users', 'users');
+        Route::get('dashboard/categories', 'categories');
+    });
 
-Route::middleware('auth')->group(function () {
-    Route::get('test/profile', [ProfileController::class, 'profile'])->name('profile');
-    Route::get('test/profile/security', [ProfileController::class, 'profile_security'])->name('profile.security');
-    Route::get('test/profile/advanced', [ProfileController::class, 'profile_advanced'])->name('profile.advanced');
+    Route::controller(ProfileController::class)->group(function () {
+        // GET ROUTES
+        Route::get('dashboard/profile', 'profile')->name('profile');
+        Route::get('dashboard/profile/security', 'profile_security')->name('profile.security');
+        Route::get('dashboard/profile/advanced', 'profile_advanced')->name('profile.advanced');
 
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        // POST ROUTES
+        Route::post('test/categories', 'category_store')->name('category.store');
+
+        // PUT|PATCH ROUTES
+        Route::put('test/categories/{category}', 'category_update')->name('category.update');
+        Route::patch('dashboard/profile/update', 'update')->name('profile.update');
+
+        // DELETE ROUTES
+        Route::delete('dashboard/profile/destroy', 'destroy')->name('profile.destroy');
+        Route::delete('test/categories/{category}', 'category_destroy')->name('category.destroy');
+    });
 });
-
-Route::get('test', [TestController::class, 'home']);
-Route::get('test/users', [TestController::class, 'users']);
-Route::get('test/categories', [TestController::class, 'categories']);
-Route::post('test/categories', [TestController::class, 'category_store'])->name('category.store');
-Route::match(['PUT', 'PATCH'], 'test/categories/{category}', [TestController::class, 'category_update'])->name('category.update');
-Route::delete('test/categories/{category}', [TestController::class, 'category_destroy'])->name('category.destroy');
 
 require __DIR__ . '/auth.php';
