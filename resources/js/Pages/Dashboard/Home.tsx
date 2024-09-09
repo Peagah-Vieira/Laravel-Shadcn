@@ -1,5 +1,4 @@
-import RootLayout from "@/Layouts/RootLayout";
-import { Button } from "@/Components/ui/button";
+import AuthRootLayout from "@/Layouts/AuthRootLayout";
 import { Head } from '@inertiajs/react';
 import {
     AlertDialog,
@@ -12,11 +11,12 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
 } from "@/Components/ui/alert-dialog"
+import { PageProps } from "@/types";
 
 
-export default function Home() {
+export default function Home({ auth }: PageProps) {
     return (
-        <RootLayout>
+        <AuthRootLayout user={auth.user}>
             <Head title="Home" />
             <div className="flex items-center">
                 <h1 className="text-lg font-semibold md:text-2xl">Inventory</h1>
@@ -47,6 +47,6 @@ export default function Home() {
                     </AlertDialog>
                 </div>
             </div>
-        </RootLayout>
+        </AuthRootLayout>
     )
 }

@@ -1,4 +1,4 @@
-import RootLayout from "@/Layouts/RootLayout";
+import AuthRootLayout from "@/Layouts/AuthRootLayout";
 import { Head } from '@inertiajs/react';
 import {
     Breadcrumb,
@@ -9,11 +9,11 @@ import {
 } from "@/Components/ui/breadcrumb";
 import ProfileNavbar from "./Partials/Navbar";
 import UpdateProfileInformationForm from "./Partials/UpdateProfileInformationForm";
-import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
+import { PageProps } from "@/types";
 
-export default function ProfileGeneral() {
+export default function ProfileGeneral({ auth, mustVerifyEmail, status }: PageProps<{ mustVerifyEmail: boolean, status?: string }>) {
     return (
-        <RootLayout>
+        <AuthRootLayout user={auth.user}>
             <Head title="Profile" />
             <div className="flex items-center">
                 <Breadcrumb>
@@ -35,9 +35,10 @@ export default function ProfileGeneral() {
             <div className="grid w-full max-w-6xl items-start gap-6 md:grid-cols-[180px_1fr] lg:grid-cols-[250px_1fr]">
                 <ProfileNavbar />
                 <div className="grid gap-6">
-                    <UpdateProfileInformationForm />
+                    <UpdateProfileInformationForm mustVerifyEmail={mustVerifyEmail}
+                        status={status} />
                 </div>
             </div>
-        </RootLayout>
+        </AuthRootLayout>
     )
 }

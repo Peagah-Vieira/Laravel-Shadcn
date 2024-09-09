@@ -1,4 +1,4 @@
-import RootLayout from "@/Layouts/RootLayout";
+import AuthRootLayout from "@/Layouts/AuthRootLayout";
 import { Head } from '@inertiajs/react';
 import {
     Breadcrumb,
@@ -12,9 +12,9 @@ import { DataTable } from "@/Layouts/Table/DataTableLayout";
 import { PageProps } from "@/types";
 import { UserCreateDialog } from "@/Layouts/Users/UserCreateDialog";
 
-export default function Users({ users }: PageProps<{ users: [] }>) {
+export default function Users({ auth, users }: PageProps<{ users: [] }>) {
     return (
-        <RootLayout>
+        <AuthRootLayout user={auth.user}>
             <Head title="Users" />
             <div className="flex items-center">
                 <Breadcrumb>
@@ -30,6 +30,6 @@ export default function Users({ users }: PageProps<{ users: [] }>) {
                 </Breadcrumb>
             </div>
             <DataTable columns={UsersColumns} data={users} DialogComponent={UserCreateDialog} />
-        </RootLayout>
+        </AuthRootLayout>
     )
 }

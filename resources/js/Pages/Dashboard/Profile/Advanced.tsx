@@ -1,4 +1,4 @@
-import RootLayout from "@/Layouts/RootLayout";
+import AuthRootLayout from "@/Layouts/AuthRootLayout";
 import { Head } from '@inertiajs/react';
 import {
     Breadcrumb,
@@ -8,12 +8,12 @@ import {
     BreadcrumbSeparator,
 } from "@/Components/ui/breadcrumb";
 import ProfileNavbar from "./Partials/Navbar";
-import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
 import DeleteUserForm from "./Partials/DeleteUserForm";
+import { PageProps } from "@/types";
 
-export default function ProfileAdvanced() {
+export default function ProfileAdvanced({ auth }: PageProps) {
     return (
-        <RootLayout>
+        <AuthRootLayout user={auth.user}>
             <Head title="Profile" />
             <div className="flex items-center">
                 <Breadcrumb>
@@ -38,6 +38,6 @@ export default function ProfileAdvanced() {
                     <DeleteUserForm />
                 </div>
             </div>
-        </RootLayout>
+        </AuthRootLayout>
     )
 }

@@ -2,8 +2,9 @@ import { PropsWithChildren } from 'react';
 import Sidebar from "@/Layouts/SideBarLayout";
 import Navbar from "@/Layouts/NavbarLayout";
 import { Toaster } from '@/Components/ui/toaster';
+import { User } from '@/types';
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default function AuthRootLayout({ user, children }: PropsWithChildren<{ user: User }>) {
     return (
         <div>
             <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">

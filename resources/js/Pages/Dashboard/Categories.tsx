@@ -1,4 +1,4 @@
-import RootLayout from "@/Layouts/RootLayout";
+import AuthRootLayout from "@/Layouts/AuthRootLayout";
 import { Head } from '@inertiajs/react';
 import {
     Breadcrumb,
@@ -12,9 +12,9 @@ import { CategoriesColumns } from "@/Layouts/Categories/CategoriesColumns";
 import { CategoryCreateDialog } from "@/Layouts/Categories/CategoryCreateDialog";
 import { PageProps } from "@/types";
 
-export default function Categories({ categories }: PageProps<{ categories: [] }>) {
+export default function Categories({ categories, auth }: PageProps<{ categories: [] }>) {
     return (
-        <RootLayout>
+        <AuthRootLayout user={auth.user}>
             <Head title="Categories" />
             <div className="flex items-center">
                 <Breadcrumb>
@@ -30,6 +30,6 @@ export default function Categories({ categories }: PageProps<{ categories: [] }>
                 </Breadcrumb>
             </div>
             <DataTable columns={CategoriesColumns} data={categories} DialogComponent={CategoryCreateDialog} />
-        </RootLayout>
+        </AuthRootLayout>
     )
 }

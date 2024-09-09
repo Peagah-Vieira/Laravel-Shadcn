@@ -1,4 +1,4 @@
-import RootLayout from "@/Layouts/RootLayout";
+import AuthRootLayout from "@/Layouts/AuthRootLayout";
 import { Head } from '@inertiajs/react';
 import {
     Breadcrumb,
@@ -9,10 +9,11 @@ import {
 } from "@/Components/ui/breadcrumb";
 import ProfileNavbar from "./Partials/Navbar";
 import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
+import { PageProps } from "@/types";
 
-export default function ProfileSecurity() {
+export default function ProfileSecurity({ auth }: PageProps) {
     return (
-        <RootLayout>
+        <AuthRootLayout user={auth.user}>
             <Head title="Profile" />
             <div className="flex items-center">
                 <Breadcrumb>
@@ -37,6 +38,6 @@ export default function ProfileSecurity() {
                     <UpdatePasswordForm />
                 </div>
             </div>
-        </RootLayout>
+        </AuthRootLayout>
     )
 }
