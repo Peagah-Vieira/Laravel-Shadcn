@@ -8,7 +8,7 @@ export interface User {
 }
 export interface Category {
     id: number;
-    name: string;
+    category_name: string;
     created_at: Date;
     updated_at: Date;
 }

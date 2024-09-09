@@ -44,4 +44,14 @@ class TestController extends Controller
 
         return redirect()->back();
     }
+
+    /**
+     * Delete a category and redirect.
+     */
+    public function category_destroy(Category $category)
+    {
+        $category->delete();
+
+        return redirect()->back();
+    }
 }

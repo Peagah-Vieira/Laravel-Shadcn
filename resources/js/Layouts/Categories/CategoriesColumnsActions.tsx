@@ -29,7 +29,7 @@ export default function CategoriesColumnsActions({ category }: props) {
         <DropdownMenu>
             <CategoryViewDialog open={isViewDialogOpen} onOpenChange={setIsViewDialogOpen} />
             <CategoryEditDialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen} />
-            <CategoryDeleteDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen} />
+            <CategoryDeleteDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen} category={category}/>
             <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="h-8 w-8 p-0">
                     <span className="sr-only">Open menu</span>
