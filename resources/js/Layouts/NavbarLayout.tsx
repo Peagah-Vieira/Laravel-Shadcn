@@ -54,11 +54,11 @@ export default function Navbar() {
                             <FontAwesomeIcon icon={faHouse as IconProp} />
                             Home
                         </Link>
-                        <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
+                        <Link href={route('dashboard.users')} className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
                             <FontAwesomeIcon icon={faUsers as IconProp} />
                             Users
                         </Link>
-                        <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
+                        <Link href={route('dashboard.categories')} className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
                             <FontAwesomeIcon icon={faCube as IconProp} />
                             Categories
                         </Link>
@@ -103,7 +103,9 @@ export default function Navbar() {
                         Profile
                     </Link>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>Logout</DropdownMenuItem>
+                    <Link href={route('logout')} method="post" className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm focus:bg-accent text-muted-foreground hover:text-foreground">
+                        Logout
+                    </Link>
                 </DropdownMenuContent>
             </DropdownMenu>
         </header>

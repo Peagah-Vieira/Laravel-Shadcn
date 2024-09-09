@@ -21,11 +21,11 @@ export default function Sidebar() {
                             <FontAwesomeIcon icon={faHouse as IconProp} />
                             Home
                         </Link>
-                        <Link href="#" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
+                        <Link href={route('dashboard.users')} className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
                             <FontAwesomeIcon icon={faUsers as IconProp} />
                             Users
                         </Link>
-                        <Link href="#" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
+                        <Link href={route('dashboard.categories')} className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
                             <FontAwesomeIcon icon={faCube as IconProp} />
                             Categories
                         </Link>
