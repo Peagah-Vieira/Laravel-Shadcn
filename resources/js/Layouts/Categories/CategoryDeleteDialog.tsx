@@ -8,7 +8,6 @@ import {
     AlertDialogHeader,
     AlertDialogTitle,
 } from "@/Components/ui/alert-dialog"
-import { DialogProps } from "@radix-ui/react-dialog"
 import { FormEventHandler } from 'react';
 import { useForm } from '@inertiajs/react';
 import { useToast } from "@/hooks/use-toast"
@@ -21,13 +20,13 @@ type props = {
 }
 
 export function CategoryDeleteDialog({ category, open, onOpenChange }: props,) {
-    const { post, processing } = useForm()
+    const { delete: destroy, processing } = useForm()
     const { toast } = useToast()
 
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('category.destroy', category.id), {
+        destroy(route('category.destroy', category.id), {
             onFinish: () => toast({
                 title: "Category Name" + " - " + category.category_name,
                 description: "The Category has been successfully deleted.",

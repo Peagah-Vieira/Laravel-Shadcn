@@ -29,6 +29,7 @@ Route::get('test', [TestController::class, 'home']);
 Route::get('test/users', [TestController::class, 'users']);
 Route::get('test/categories', [TestController::class, 'categories']);
 Route::post('test/categories', [TestController::class, 'category_store'])->name('category.store');
-Route::post('test/categories/{category}', [TestController::class, 'category_destroy'])->name('category.destroy');
+Route::match(['PUT', 'PATCH'], 'test/categories/{category}', [TestController::class, 'category_update'])->name('category.update');
+Route::delete('test/categories/{category}', [TestController::class, 'category_destroy'])->name('category.destroy');
 
 require __DIR__ . '/auth.php';

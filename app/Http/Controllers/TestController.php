@@ -31,7 +31,7 @@ class TestController extends Controller
     }
 
     /**
-     * Handle an incoming Category Store request.
+     * Handle an incoming category_store request.
      *
      * @param Request $request
      * @return RedirectResponse
@@ -46,9 +46,27 @@ class TestController extends Controller
     }
 
     /**
-     * Delete a category and redirect.
+     * Update a category and redirect.
+     *
+     * @param Request $request
+     * @param Category $category
+     * @return RedirectResponse
      */
-    public function category_destroy(Category $category)
+    public function category_update(Request $request, Category $category): RedirectResponse
+    {
+        $category->update([
+            'category_name' => $request->category_name,
+        ]);
+
+        return redirect()->back();
+    }
+
+    /**
+     * Delete a category and redirect.
+     *
+     * @param Category $category
+     */
+    public function category_destroy(Category $category): RedirectResponse
     {
         $category->delete();
 
