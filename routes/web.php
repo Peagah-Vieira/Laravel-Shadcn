@@ -20,15 +20,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('test/profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::get('test/profile/security', [ProfileController::class, 'profile_security'])->name('profile.security');
+    Route::get('test/profile/advanced', [ProfileController::class, 'profile_advanced'])->name('profile.advanced');
+
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::get('test', [TestController::class, 'home']);
-Route::get('test/profile', [TestController::class, 'profile'])->name('profile');
-Route::get('test/profile/security', [TestController::class, 'profile_security'])->name('profile.security');
-Route::get('test/profile/advanced', [TestController::class, 'profile_advanced'])->name('profile.advanced');
 Route::get('test/users', [TestController::class, 'users']);
 Route::get('test/categories', [TestController::class, 'categories']);
 Route::post('test/categories', [TestController::class, 'category_store'])->name('category.store');

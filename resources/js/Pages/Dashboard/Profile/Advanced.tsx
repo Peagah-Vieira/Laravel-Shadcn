@@ -9,7 +9,7 @@ import {
 } from "@/Components/ui/breadcrumb";
 import ProfileNavbar from "./Partials/Navbar";
 import UpdatePasswordForm from "./Partials/UpdatePasswordForm";
-import DeleteUserForm from "./Partials/DeleUserForm";
+import DeleteUserForm from "./Partials/DeleteUserForm";
 
 export default function ProfileAdvanced() {
     return (

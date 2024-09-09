@@ -13,15 +13,22 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): Response
+    public function profile(Request $request): Response
     {
-        return Inertia::render('Profile/Edit', [
+        return Inertia::render('Dashboard/Profile/General', [
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
         ]);
+    }
+
+    public function profile_security(): Response
+    {
+        return Inertia::render('Dashboard/Profile/Security');
+    }
+
+    public function profile_advanced(): Response
+    {
+        return Inertia::render('Dashboard/Profile/Advanced');
     }
 
     /**
@@ -37,7 +44,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return Redirect::route('profile.edit');
+        return Redirect::route('profile');
     }
 
     /**

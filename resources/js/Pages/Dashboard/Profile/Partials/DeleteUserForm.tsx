@@ -1,19 +1,20 @@
 import {
     Card,
-    CardContent,
     CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
 } from "@/Components/ui/card"
 import { Button } from "@/Components/ui/button";
-import { Input } from "@/Components/ui/input"
-import { Label } from "@/Components/ui/label";
-import InputError from "@/Components/ui/InputError";
+import { DeleteUserDialog } from "./DeleteUserDialog";
+import { useState } from 'react';
 
 export default function DeleteUserForm() {
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false)
+
     return (
         <Card>
+            <DeleteUserDialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen} />
             <CardHeader>
                 <CardTitle>Delete Account</CardTitle>
                 <CardDescription>
@@ -22,7 +23,7 @@ export default function DeleteUserForm() {
                 </CardDescription>
             </CardHeader>
             <CardFooter>
-                <Button variant={"destructive"}>DELETE ACCOUNT</Button>
+                <Button onClick={() => setIsDeleteDialogOpen(true)} variant={"destructive"}>DELETE ACCOUNT</Button>
             </CardFooter>
         </Card>
     )
