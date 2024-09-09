@@ -99,8 +99,9 @@ export default function Navbar() {
                 <DropdownMenuContent align="end">
                     <DropdownMenuLabel>My Account</DropdownMenuLabel>
                     <DropdownMenuSeparator />
-                    <DropdownMenuItem>Settings</DropdownMenuItem>
-                    <DropdownMenuItem>Support</DropdownMenuItem>
+                    <Link href={route('profile')} className="relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm focus:bg-accent text-muted-foreground hover:text-foreground">
+                        Profile
+                    </Link>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>Logout</DropdownMenuItem>
                 </DropdownMenuContent>

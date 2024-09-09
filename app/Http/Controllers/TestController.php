@@ -11,6 +11,21 @@ use Inertia\Response;
 
 class TestController extends Controller
 {
+    public function profile(): Response
+    {
+        return Inertia::render('Dashboard/Profile/General');
+    }
+
+    public function profile_security(): Response
+    {
+        return Inertia::render('Dashboard/Profile/Security');
+    }
+
+    public function profile_advanced(): Response
+    {
+        return Inertia::render('Dashboard/Profile/Advanced');
+    }
+
     public function home(): Response
     {
         return Inertia::render('Dashboard/Home');

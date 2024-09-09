@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::get('test', [TestController::class, 'home']);
+Route::get('test/profile', [TestController::class, 'profile'])->name('profile');
+Route::get('test/profile/security', [TestController::class, 'profile_security'])->name('profile.security');
+Route::get('test/profile/advanced', [TestController::class, 'profile_advanced'])->name('profile.advanced');
 Route::get('test/users', [TestController::class, 'users']);
 Route::get('test/categories', [TestController::class, 'categories']);
 Route::post('test/categories', [TestController::class, 'category_store'])->name('category.store');
