@@ -1,4 +1,4 @@
-import GuestLayout from '@/Layouts/GuestLayout';
+import GuestRootLayout from '@/Layouts/GuestRootLayout';
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import InputError from "@/Components/ui/InputError";
@@ -30,7 +30,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
     };
 
     return (
-        <GuestLayout>
+        <GuestRootLayout>
             <Head title="Login" />
 
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
@@ -99,6 +99,6 @@ export default function Login({ status, canResetPassword }: { status?: string, c
                     </CardContent>
                 </Card>
             </form>
-        </GuestLayout>
+        </GuestRootLayout>
     )
 }

@@ -1,5 +1,5 @@
 import { FormEventHandler } from 'react';
-import GuestLayout from '@/Layouts/GuestLayout';
+import GuestRootLayout from '@/Layouts/GuestRootLayout';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
@@ -20,7 +20,7 @@ export default function ConfirmPassword() {
     };
 
     return (
-        <GuestLayout>
+        <GuestRootLayout>
             <Head title="Confirm Password" />
 
             <div className="mb-4 text-sm text-gray-600 dark:text-gray-400">
@@ -50,6 +50,6 @@ export default function ConfirmPassword() {
                     </PrimaryButton>
                 </div>
             </form>
-        </GuestLayout>
+        </GuestRootLayout>
     );
 }

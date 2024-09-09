@@ -1,4 +1,4 @@
-import GuestLayout from '@/Layouts/GuestLayout';
+import GuestRootLayout from '@/Layouts/GuestRootLayout';
 import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import InputError from "@/Components/ui/InputError";
@@ -30,7 +30,7 @@ export default function ResetPassword({ token, email }: { token: string, email: 
     };
 
     return (
-        <GuestLayout>
+        <GuestRootLayout>
             <Head title="Reset Password" />
             <form onSubmit={submit}>
                 <Card className="mx-auto max-w-sm">
@@ -88,6 +88,6 @@ export default function ResetPassword({ token, email }: { token: string, email: 
                     </CardContent>
                 </Card>
             </form>
-        </GuestLayout>
+        </GuestRootLayout>
     )
 }
