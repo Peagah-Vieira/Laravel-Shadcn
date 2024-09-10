@@ -37,7 +37,7 @@ export default function Sidebar() {
                             <FontAwesomeIcon icon={faTags as IconProp} />
                             Tags
                         </Link>
-                        <Link href="#" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
+                        <Link href={route('dashboard.comments')} className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
                             <FontAwesomeIcon icon={faComments as IconProp} />
                             Comments
                         </Link>

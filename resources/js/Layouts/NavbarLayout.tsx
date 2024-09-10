@@ -71,7 +71,7 @@ export default function Navbar() {
                             <FontAwesomeIcon icon={faTags as IconProp} />
                             Tags
                         </Link>
-                        <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
+                        <Link href={route('dashboard.comments')} className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
                             <FontAwesomeIcon icon={faComments as IconProp} />
                             Comments
                         </Link>

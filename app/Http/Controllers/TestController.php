@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Content;
 use App\Models\Tag;
 use App\Models\User;
@@ -43,6 +44,13 @@ class TestController extends Controller
     {
         return Inertia::render('Dashboard/Tags', [
             'tags' => Tag::all(),
+        ]);
+    }
+
+    public function comments(): Response
+    {
+        return Inertia::render('Dashboard/Comments', [
+            'comments' => Comment::all(),
         ]);
     }
 
@@ -88,6 +96,23 @@ class TestController extends Controller
     {
         Tag::create([
             'tag_name' => $request->tag_name,
+        ]);
+
+        return redirect()->back();
+    }
+
+    /**
+     * Handle an incoming comment_store request.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function comment_store(Request $request): RedirectResponse
+    {
+        Comment::create([
+            'user_id' => $request->user_id,
+            'content_id' => $request->content_id,
+            'comment_text' => $request->comment_text,
         ]);
 
         return redirect()->back();
@@ -144,6 +169,24 @@ class TestController extends Controller
     }
 
     /**
+     * Update a comment and redirect.
+     *
+     * @param Request $request
+     * @param Comment $comment
+     * @return RedirectResponse
+     */
+    public function comment_update(Request $request, Comment $comment): RedirectResponse
+    {
+        $comment->update([
+            'user_id' => $request->user_id,
+            'content_id' => $request->content_id,
+            'comment_text' => $request->comment_text,
+        ]);
+
+        return redirect()->back();
+    }
+
+    /**
      * Delete a category and redirect.
      *
      * @param Category $category
@@ -175,6 +218,18 @@ class TestController extends Controller
     public function tag_destroy(Tag $tag): RedirectResponse
     {
         $tag->delete();
+
+        return redirect()->back();
+    }
+
+    /**
+     * Delete a comment and redirect.
+     *
+     * @param Comment $comment
+     */
+    public function comment_destroy(Comment $comment): RedirectResponse
+    {
+        $comment->delete();
 
         return redirect()->back();
     }

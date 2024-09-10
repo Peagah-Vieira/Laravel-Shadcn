@@ -29,6 +29,15 @@ export interface Tag {
     updated_at: Date;
 }
 
+export interface Comment {
+    id: number;
+    user_id: number;
+    content_id: number;
+    comment_text: string;
+    created_at: Date;
+    updated_at: Date;
+}
+
 export type PageProps<T extends Record<string, unknown> = Record<string, unknown>> = T & {
     auth: {
         user: User;
