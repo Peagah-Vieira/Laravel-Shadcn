@@ -24,6 +24,7 @@ import {
     faMagnifyingGlass
 } from '@fortawesome/free-solid-svg-icons';
 import { faCircleUser } from '@fortawesome/free-regular-svg-icons';
+import { ModeToggle } from "@/Components/ui/mode-toggle";
 
 export default function Navbar() {
     const appName = import.meta.env.VITE_APP_NAME;
@@ -89,6 +90,7 @@ export default function Navbar() {
                     </div>
                 </form>
             </div>
+            <ModeToggle />
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <Button variant="secondary" size="icon" className="rounded-full">
