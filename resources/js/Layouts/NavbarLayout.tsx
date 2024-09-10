@@ -67,7 +67,7 @@ export default function Navbar() {
                             <FontAwesomeIcon icon={faCopy as IconProp} />
                             Contents
                         </Link>
-                        <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
+                        <Link href={route('dashboard.tags')} className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
                             <FontAwesomeIcon icon={faTags as IconProp} />
                             Tags
                         </Link>

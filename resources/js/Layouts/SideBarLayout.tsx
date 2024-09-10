@@ -33,7 +33,7 @@ export default function Sidebar() {
                             <FontAwesomeIcon icon={faCopy as IconProp} />
                             Contents
                         </Link>
-                        <Link href="#" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
+                        <Link href={route('dashboard.tags')} className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary">
                             <FontAwesomeIcon icon={faTags as IconProp} />
                             Tags
                         </Link>

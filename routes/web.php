@@ -15,18 +15,22 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('dashboard/users', 'users')->name('dashboard.users');
         Route::get('dashboard/categories', 'categories')->name('dashboard.categories');
         Route::get('dashboard/contents', 'contents')->name('dashboard.contents');
+        Route::get('dashboard/tags', 'tags')->name('dashboard.tags');
 
         // POST ROUTES
         Route::post('dashboard/categories', 'category_store')->name('category.store');
         Route::post('dashboard/contents', 'content_store')->name('content.store');
+        Route::post('dashboard/tags', 'tag_store')->name('tag.store');
 
         // PUT|PATCH ROUTES
         Route::put('dashboard/categories/{category}', 'category_update')->name('category.update');
         Route::patch('dashboard/contents/{content}', 'content_update')->name('content.update');
+        Route::patch('dashboard/tags/{tag}', 'tag_update')->name('tag.update');
 
         // DELETE ROUTES
         Route::delete('dashboard/categories/{category}', 'category_destroy')->name('category.destroy');
         Route::delete('dashboard/contents/{content}', 'content_destroy')->name('content.destroy');
+        Route::delete('dashboard/tags/{tag}', 'tag_destroy')->name('tag.destroy');
     });
 
     Route::controller(ProfileController::class)->group(function () {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Content;
+use App\Models\Tag;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -38,6 +39,13 @@ class TestController extends Controller
         ]);
     }
 
+    public function tags(): Response
+    {
+        return Inertia::render('Dashboard/Tags', [
+            'tags' => Tag::all(),
+        ]);
+    }
+
     /**
      * Handle an incoming category_store request.
      *
@@ -65,6 +73,21 @@ class TestController extends Controller
             'content_title' => $request->content_title,
             'content_description' => $request->content_description,
             'content_type' => $request->content_type,
+        ]);
+
+        return redirect()->back();
+    }
+
+    /**
+     * Handle an incoming tag_store request.
+     *
+     * @param Request $request
+     * @return RedirectResponse
+     */
+    public function tag_store(Request $request): RedirectResponse
+    {
+        Tag::create([
+            'tag_name' => $request->tag_name,
         ]);
 
         return redirect()->back();
@@ -105,6 +128,22 @@ class TestController extends Controller
     }
 
     /**
+     * Update a tag and redirect.
+     *
+     * @param Request $request
+     * @param Tag $tag
+     * @return RedirectResponse
+     */
+    public function tag_update(Request $request, Tag $tag): RedirectResponse
+    {
+        $tag->update([
+            'tag_name' => $request->tag_name,
+        ]);
+
+        return redirect()->back();
+    }
+
+    /**
      * Delete a category and redirect.
      *
      * @param Category $category
@@ -124,6 +163,18 @@ class TestController extends Controller
     public function content_destroy(Content $content): RedirectResponse
     {
         $content->delete();
+
+        return redirect()->back();
+    }
+
+    /**
+     * Delete a tag and redirect.
+     *
+     * @param Tag $tag
+     */
+    public function tag_destroy(Tag $tag): RedirectResponse
+    {
+        $tag->delete();
 
         return redirect()->back();
     }
