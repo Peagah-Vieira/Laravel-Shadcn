@@ -14,15 +14,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('dashboard', 'home')->name('dashboard');
         Route::get('dashboard/users', 'users')->name('dashboard.users');
         Route::get('dashboard/categories', 'categories')->name('dashboard.categories');
+        Route::get('dashboard/contents', 'contents')->name('dashboard.contents');
 
         // POST ROUTES
         Route::post('dashboard/categories', 'category_store')->name('category.store');
+        Route::post('dashboard/contents', 'content_store')->name('content.store');
 
         // PUT|PATCH ROUTES
         Route::put('dashboard/categories/{category}', 'category_update')->name('category.update');
+        Route::patch('dashboard/contents/{content}', 'content_update')->name('content.update');
 
         // DELETE ROUTES
         Route::delete('dashboard/categories/{category}', 'category_destroy')->name('category.destroy');
+        Route::delete('dashboard/contents/{content}', 'content_destroy')->name('content.destroy');
     });
 
     Route::controller(ProfileController::class)->group(function () {

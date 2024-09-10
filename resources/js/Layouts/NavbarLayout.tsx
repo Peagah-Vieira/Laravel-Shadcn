@@ -63,7 +63,7 @@ export default function Navbar() {
                             <FontAwesomeIcon icon={faCube as IconProp} />
                             Categories
                         </Link>
-                        <Link href="#" className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
+                        <Link href={route('dashboard.contents')} className="mx-[-0.65rem] flex items-center gap-4 rounded-xl px-3 py-2 text-muted-foreground hover:text-foreground">
                             <FontAwesomeIcon icon={faCopy as IconProp} />
                             Contents
                         </Link>
