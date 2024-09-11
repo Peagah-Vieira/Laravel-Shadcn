@@ -8,11 +8,11 @@ import {
     BreadcrumbSeparator,
 } from "@/Components/ui/breadcrumb";
 import { DataTable } from "@/Layouts/Table/DataTableLayout";
-import { PageProps } from "@/types";
+import { Content, PageProps } from "@/types";
 import { CommentsColumns } from "@/Layouts/Comments/CommentsColumns";
 import { CommentCreateDialog } from "@/Layouts/Comments/CommentCreateDialog";
 
-export default function Comments({ comments, auth }: PageProps<{ comments: [] }>) {
+export default function Comments({ comments, contents, auth }: PageProps<{ comments: [], contents: Content }>) {
     return (
         <AuthRootLayout user={auth.user}>
             <Head title="Comments" />
@@ -29,7 +29,7 @@ export default function Comments({ comments, auth }: PageProps<{ comments: [] }>
                     </BreadcrumbList>
                 </Breadcrumb>
             </div>
-            <DataTable columns={CommentsColumns} data={comments} DialogComponent={CommentCreateDialog} />
+            <DataTable columns={CommentsColumns} data={comments} DialogComponent={CommentCreateDialog} contents={contents} />
         </AuthRootLayout>
     )
 }

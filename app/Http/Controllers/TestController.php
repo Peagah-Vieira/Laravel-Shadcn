@@ -51,6 +51,7 @@ class TestController extends Controller
     {
         return Inertia::render('Dashboard/Comments', [
             'comments' => Comment::all(),
+            'contents' => Content::all(),
         ]);
     }
 
@@ -110,7 +111,7 @@ class TestController extends Controller
     public function comment_store(Request $request): RedirectResponse
     {
         Comment::create([
-            'user_id' => $request->user_id,
+            'user_id' => $request->user()->id,
             'content_id' => $request->content_id,
             'comment_text' => $request->comment_text,
         ]);

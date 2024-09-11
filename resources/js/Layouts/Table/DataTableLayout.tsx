@@ -21,16 +21,19 @@ import { Input } from "@/Components/ui/input"
 import { DataTablePagination } from "./DataTablePaginationLayout"
 import { DataTableViewOptions } from "./DataTableOptionsLayout"
 import * as React from "react"
+import { Content } from "@/types"
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
     data: TData[]
-    DialogComponent: React.FC
+    DialogComponent: React.FC<{ contents: Content }>
+    contents: Content
 }
 
 export function DataTable<TData, TValue>({
     columns,
     data,
     DialogComponent,
+    contents,
 }: DataTableProps<TData, TValue>) {
     const [sorting, setSorting] = React.useState<SortingState>([])
 
@@ -71,7 +74,7 @@ export function DataTable<TData, TValue>({
                     }
                     className="max-w-sm"
                 />
-                <DialogComponent />
+                <DialogComponent contents={contents} />
                 <DataTableViewOptions table={table} />
             </div>
             <div className="rounded-md border">

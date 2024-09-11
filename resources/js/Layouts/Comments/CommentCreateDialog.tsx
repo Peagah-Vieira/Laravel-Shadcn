@@ -7,6 +7,13 @@ import {
     DialogTrigger,
     DialogFooter
 } from "@/Components/ui/dialog"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/Components/ui/select"
 import { Input } from "@/Components/ui/input"
 import InputError from "@/Components/ui/InputError";
 import { Label } from "@/Components/ui/label"
@@ -15,8 +22,13 @@ import { PlusCircle } from "lucide-react"
 import { FormEventHandler } from 'react';
 import { useForm } from '@inertiajs/react';
 import { useToast } from "@/hooks/use-toast"
+import { Content } from "@/types";
 
-export function CommentCreateDialog() {
+type props = {
+    contents: Content[],
+}
+
+export function CommentCreateDialog({ contents }: props) {
     const { data, setData, post, processing, errors, reset } = useForm({
         user_id: '',
         content_id: '',
@@ -58,6 +70,40 @@ export function CommentCreateDialog() {
                         </DialogDescription>
                     </DialogHeader>
                     <div className="grid gap-4 py-4">
+                        <div className="grid grid-cols-4 items-center gap-2">
+                            <Label htmlFor="content_id" className="text-left">
+                                Content
+                            </Label>
+                            <Select>
+                                <SelectTrigger className="col-span-3">
+                                    <SelectValue placeholder="Select a Content" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    {contents.map((content) => (
+                                        <SelectItem value={content.id.toString()}>{content.content_type}</SelectItem>
+                                    ))
+                                    }
+                                </SelectContent>
+                            </Select>
+                            <InputError message={errors.content_id} className="mt-2" />
+                        </div>
+                        <div className="grid grid-cols-4 items-center gap-2">
+                            <Label htmlFor="comment_text" className="text-left">
+                                Comment Text
+                            </Label>
+                            <Input
+                                type="name"
+                                id="comment_text"
+                                name="comment_text"
+                                autoComplete="comment_text"
+                                placeholder="@Comment Text"
+                                value={data.comment_text}
+                                onChange={(e) => setData('comment_text', e.target.value)}
+                                required
+                                className="col-span-3"
+                            />
+                            <InputError message={errors.comment_text} className="mt-2" />
+                        </div>
                     </div>
                     <DialogFooter>
                         <Button type="submit" disabled={processing}>Create</Button>
