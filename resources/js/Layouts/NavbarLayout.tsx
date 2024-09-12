@@ -78,8 +78,8 @@ export default function Navbar() {
                     </nav>
                 </SheetContent>
             </Sheet>
-            <div className="w-full flex-1">
-                <form>
+            <div className="w-full flex-1 items-end">
+                <form className="hidden">
                     <div className="relative">
                         <FontAwesomeIcon icon={faMagnifyingGlass as IconProp} className="absolute left-2.5 top-2.5 text-muted-foreground" />
                         <Input
