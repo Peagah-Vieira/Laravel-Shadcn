@@ -2,7 +2,7 @@
 
 > NexaCMS is designed to offer developers and content managers a robust and flexible platform for managing content with ease. By leveraging the power of Laravel and React, it provides modern, dynamic content management features, all within a monolithic architecture that ensures simplicity without compromising performance.
 
-#### This repo is functionality complete — PRs and issues welcome! Feel free to contact me in discord: pea_gah
+#### This repo is functionality complete — PRs and issues welcome! Feel free to contact me in discord: [pea_gah](https://discord.gg/p9ekhtk44F)
 
 ## Features
 
